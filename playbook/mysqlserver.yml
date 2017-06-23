@@ -1,6 +1,7 @@
 ---
 - hosts: mysqlservers
+  gather_facts: no
   become: yes
   roles:
-  - mysql
+  # - mysql
   - hostname

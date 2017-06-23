@@ -1,6 +1,6 @@
-java-server-1 ansible_host=192.168.33.20
-php-server-1 ansible_host=192.168.33.21
-mysql-server-1 ansible_host=192.168.33.22
+java-server-1 ansible_host=192.168.40.20
+php-server-1 ansible_host=192.168.40.21
+mysql-server-1 ansible_host=192.168.40.22
 
 [javaservers]
 java-server-1
