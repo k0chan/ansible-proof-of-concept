@@ -1,0 +1,5 @@
+---
+foo: host
+
+ipv4_address: 192.168.33.31
+interfaces_length: 1

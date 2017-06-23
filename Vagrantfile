@@ -2,27 +2,34 @@ VAGRANT_VERSIONFILE_API=2
 
 Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
 
-  config.vm.define "acs" do |acs|
-    acs.vm.box = "ubuntu/trusty64"
-    acs.vm.hostname = "acs"
-    acs.vm.network "private_network", ip: "192.168.33.10"
-    acs.vm.provision "shell", path: "provision/acs_init.sh"
+  config.vm.define "machine" do |machine|
+    machine.vm.box = "ubuntu/trusty64"
+    machine.vm.hostname = "java-server"
+    machine.vm.network "private_network", ip: "192.168.33.20"
 
-    acs.vm.synced_folder "playbook/", "/home/vagrant/playbook"
-    acs.vm.synced_folder "playbook/", "/home/vagrant/playbook"
-
-    acs.vm.provider "virtualbox" do |vb|
-      vb.name = "poc_ansible_acs"
+    machine.vm.provider "virtualbox" do |vb|
+      vb.name = "poc_ansible_machin1"
     end
   end
 
-  config.vm.define "machine" do |machine|
-    machine.vm.box = "ubuntu/trusty64"
-    machine.vm.hostname = "machine1"
-    machine.vm.network "private_network", ip: "192.168.33.20"
-    machine.vm.provision "shell", path: "provision/machine_init.sh"
+  config.vm.define "machine1" do |machine|
+    machine.vm.box = "debian/jessie64"
+    machine.vm.box_version = "8.6.1"
+    machine.vm.hostname = "php-server"
+    machine.vm.network "private_network", ip: "192.168.33.21"
+
     machine.vm.provider "virtualbox" do |vb|
-      vb.name = "poc_ansible_machine1"
+      vb.name = "poc_ansible_machine2"
+    end
+  end
+
+  config.vm.define "machine2" do |machine|
+    machine.vm.box = "ubuntu/trusty64"
+    machine.vm.hostname = "mysql-server"
+    machine.vm.network "private_network", ip: "192.168.33.22"
+
+    machine.vm.provider "virtualbox" do |vb|
+      vb.name = "poc_ansible_machine3"
     end
   end
 end

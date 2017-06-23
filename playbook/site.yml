@@ -1,0 +1,6 @@
+---
+- include: javaserver.yml
+
+- include: phpserver.yml
+
+- include: mysqlserver.yml

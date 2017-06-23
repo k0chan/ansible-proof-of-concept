@@ -1,0 +1,5 @@
+---
+- hosts: phpservers
+  become: yes
+  roles:
+  - apache

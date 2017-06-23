@@ -1,0 +1,21 @@
+java-server ansible_host=192.168.33.20
+php-server ansible_host=192.168.33.21
+mysql-server ansible_host=192.168.33.22
+
+[javaservers]
+java-server
+
+[phpservers]
+php-server
+
+[mysqlservers]
+mysql-server
+
+[allservers:children]
+javaservers
+phpservers
+mysqlservers
+
+[allservers:vars]
+ansible_user=vagrant
+ansible_ssh_pass=vagrant

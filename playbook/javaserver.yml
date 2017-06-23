@@ -1,0 +1,6 @@
+---
+- hosts: javaservers
+  become: yes
+  roles:
+  - hostname
+  - ifconfig
