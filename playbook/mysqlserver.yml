@@ -2,4 +2,5 @@
 - hosts: mysqlservers
   become: yes
   roles:
-    - mysql
+  - mysql
+  - hostname

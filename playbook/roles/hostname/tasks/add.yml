@@ -1,4 +1,4 @@
 ---
-- name: Change hostname
+- name: 'Change hostname'
   hostname:
-    name: '{{ foo }}'
+    name: '{{ hostname }}'
