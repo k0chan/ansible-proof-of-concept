@@ -1,5 +1,5 @@
 ---
-# tasks file for java
+  # tasks file for java
     - name: Add webupd8team Java (Oracle) repository key
       apt_key:
         keyserver: hkp://keyserver.ubuntu.com:80
@@ -18,26 +18,19 @@
         state: present
         update_cache: yes
 
-    - name: Automatically accept Oracle license during package installation (select)
-      shell: echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
-      args:
-        executable: /bin/bash
-
-    - name: Automatically accept Oracle license during package installation (seen)
-      shell: echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
-      args:
-        executable: /bin/bash
+    - name: debian | set license as accepted
+      debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
 
     - name: Update apt cache and ensure Oracle Java8 is in latest version
       apt:
-        name: oracle-java8-set-default
-        state: latest
+        name: oracle-java8-set-default=8u131-1~webupd8~2
+        state: present
         update_cache: yes
         cache_valid_time: 3600
 
     - name: Update apt cache and ensure java unlimited jce policy is in latest version
       apt:
-        name: oracle-java8-unlimited-jce-policy
-        state: latest
+        name: oracle-java8-unlimited-jce-policy=8u131-1~webupd8~2
+        state: present
         update_cache: yes
         cache_valid_time: 3600
