@@ -1,0 +1,12 @@
+---
+# file: java/defaults/main.yml
+#
+# defaults file
+#
+oracle_java_version: 8
+
+oracle_java_package_version: '8u131-1~webupd8~2'
+
+oracle_java_state: present
+
+oracle_java_cache_valid_time: 3600
