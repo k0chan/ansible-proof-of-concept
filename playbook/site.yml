@@ -1,8 +1,8 @@
 ---
 
 
-- include: phpserver.yml
+# - include: phpserver.yml
 
-- include: mysqlserver.yml
+# - include: mysqlserver.yml
 
 - include: javaserver.yml

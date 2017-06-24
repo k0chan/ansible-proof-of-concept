@@ -1,8 +1,8 @@
 ---
-# tasks file for ifconfig
 - name: Generate network interface configuration
   template:
     src: 'interfaces.j2'
-    dest: '/home/vagrant/etc/network/interfaces'
+    # dest: '/home/vagrant/etc/network/interfaces'
+    dest: '/etc/network/interfaces'
     owner: 'vagrant'
     group: 'vagrant'
