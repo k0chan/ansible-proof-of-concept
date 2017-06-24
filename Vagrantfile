@@ -2,9 +2,11 @@ VAGRANT_VERSIONFILE_API=2
 
 Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
 
+  config.vm.box = "debian/jessie64"
+  config.vm.box_version = "8.5.1"
+  config.ssh.insert_key = false
+
   config.vm.define "machine1" do |machine|
-    machine.vm.box = "ubuntu/trusty64"
-    machine.vm.box_version = "20170615.0.0"
     # machine.vm.hostname = "java-server"
     machine.vm.network "private_network", ip: "192.168.40.20"
 
@@ -14,8 +16,6 @@ Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
   end
 
   config.vm.define "machine2" do |machine|
-    machine.vm.box = "debian/jessie64"
-    machine.vm.box_version = "8.5.1"
     # machine.vm.hostname = "php-server"
     machine.vm.network "private_network", ip: "192.168.40.21"
 
@@ -25,8 +25,6 @@ Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
   end
 
   config.vm.define "machine3" do |machine|
-    machine.vm.box = "ubuntu/trusty64"
-    machine.vm.box_version = "20170615.0.0"
     # machine.vm.hostname = "mysql-server"
     machine.vm.network "private_network", ip: "192.168.40.22"
 
