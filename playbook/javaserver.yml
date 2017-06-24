@@ -3,6 +3,5 @@
   gather_facts: no
   become: yes
   roles:
-  - hostname
+  - network
   - java
-  # - ifconfig
