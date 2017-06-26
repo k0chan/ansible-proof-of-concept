@@ -83,18 +83,4 @@
     #    backup: yes
     #    after: '^<Directory \/var\/www\/>'
     #    regexp: '^Options.*'
-    #    replace: 'Options FollowSymLinks'
-    - name: Otwieram port TCP_IN 80, jeżeli jeszcze nie jest otwarty
-      lineinfile:
-        dest: /etc/csf/csf.allow
-        regexp: '^tcp\|in\|d=80\|d={{ansible_default_ipv4.address}}'
-        line: 'tcp|in|d=80|d={{ansible_default_ipv4.address}}'
-
-    - name: Otwieram port TCP_OUT 80, jeżeli jeszcze nie jest otwarty
-      lineinfile:
-        dest: /etc/csf/csf.allow
-        regexp: '^tcp\|out\|d=80\|s={{ansible_default_ipv4.address}}'
-        line: 'tcp|out|d=80|s={{ansible_default_ipv4.address}}'
-
-    - name: Restartuję CSF, aby zatwierdzić zmiany
-      command: csf -r
+    #    replace: 'Options FollowSymLinks

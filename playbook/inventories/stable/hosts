@@ -1,0 +1,11 @@
+java-server-1 ansible_host=192.168.40.21
+
+[javaservers]
+java-server-1
+
+[allservers:children]
+javaservers
+
+[allservers:vars]
+ansible_user=vagrant
+ansible_ssh_pass=vagrant

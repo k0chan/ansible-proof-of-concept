@@ -1,6 +1,1 @@
-
-
-hostname: java-server-1
-
-ipv4_address: 192.168.33.31
-interfaces_length: 1
+hostname: devel-java-server-1
