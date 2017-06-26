@@ -1,0 +1,10 @@
+Bazuję na serwerach javowych.
+
+
+## PLAN ##
+
+1. Prezentacja konfiguracji infrastruktury od zera na 3 maszynach deweloperskich java, php, db.
+
+2. Dodanie nowego serwera javowego na środoiwku deweloperskim.
+
+3. Dodanie nowego serwera javowego na środowisku stabilnym.

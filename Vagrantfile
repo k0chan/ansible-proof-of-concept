@@ -6,6 +6,7 @@ Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
   config.vm.box_version = "8.5.1"
   config.ssh.insert_key = false
 
+  # ruby syntax loop for multiple java machines develop, stable and prod environment
   config.vm.define "machine1" do |machine|
     # machine.vm.hostname = "java-server"
     machine.vm.network "private_network", ip: "192.168.40.20"
@@ -14,6 +15,24 @@ Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
       vb.name = "poc_ansible_machine1"
     end
   end
+
+  # config.vm.define "javamachine2" do |machine|
+  #   # machine.vm.hostname = "java-server"
+  #   javamachine2.vm.network "private_network", ip: "192.168.40.21"
+  #
+  #   javamachine2.vm.provider "virtualbox" do |vb|
+  #     vb.name = "poc_ansible_machine2"
+  #   end
+  # end
+
+  # config.vm.define "javamachine3" do |machine|
+  #   # machine.vm.hostname = "java-server"
+  #   javamachine3.vm.network "private_network", ip: "192.168.40.22"
+  #
+  #   javamachine3.vm.provider "virtualbox" do |vb|
+  #     vb.name = "poc_ansible_machine3"
+  #   end
+  # end
 
   config.vm.define "machine2" do |machine|
     # machine.vm.hostname = "php-server"

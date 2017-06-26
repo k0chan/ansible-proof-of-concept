@@ -19,7 +19,11 @@
         update_cache: yes
 
     - name: debian | set license as accepted
-      debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+      debconf:
+        name: 'oracle-java8-installer'
+        question: 'shared/accepted-oracle-license-v1-1'
+        value: 'true'
+        vtype=: select'
 
     - name: Update apt cache and ensure Oracle Java8 is in latest version
       apt:

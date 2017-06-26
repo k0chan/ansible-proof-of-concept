@@ -1,0 +1,10 @@
+---
+
+users:
+  - username: mysqldevl1
+    name: MySQL Developer 1
+
+  - username: mysqldevl2
+    name: MySQL Developer 2
+
+# users_deleted:
