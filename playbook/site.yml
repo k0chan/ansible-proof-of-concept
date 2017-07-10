@@ -1,7 +1,0 @@
----
-
-- include: phpserver.yml
-
-- include: mysqlserver.yml
-
-- include: javaserver.yml

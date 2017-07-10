@@ -1,7 +1,0 @@
----
-- hosts: phpservers
-  become: yes
-  roles:
-  - network
-  - users
-  - apache

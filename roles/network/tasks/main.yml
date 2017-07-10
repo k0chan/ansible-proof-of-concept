@@ -1,0 +1,4 @@
+---
+# tasks file for hostname
+
+- include: change_hostname.yml

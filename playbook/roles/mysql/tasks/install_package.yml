@@ -1,5 +1,0 @@
----
-- name: 'Install MySQL packages'
-  apt:
-    name: mysql-server
-    state: latest

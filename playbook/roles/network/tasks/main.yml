@@ -1,6 +1,0 @@
----
-# tasks file for hostname
-
-- include: change_hostname.yml
-
-# - include: change_ip_address.yml

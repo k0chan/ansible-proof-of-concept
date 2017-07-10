@@ -1,5 +1,0 @@
----
-- name: Restartuję Apache2, aby zatwierdzić zmiany
-  service:
-    state: restarted
-    name: apache2

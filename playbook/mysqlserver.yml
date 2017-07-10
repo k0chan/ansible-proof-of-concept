@@ -1,8 +1,0 @@
----
-- hosts: mysqlservers
-  gather_facts: no
-  become: yes
-  roles:
-  - network
-  - users
-  - mysql
