@@ -14,11 +14,4 @@ Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
     end
   end
 
-  config.vm.define "server2" do |machine|
-    machine.vm.network "private_network", ip: "192.168.40.21"
-
-    machine.vm.provider "virtualbox" do |vb|
-      vb.name = "poc_server2"
-    end
-  end
 end
