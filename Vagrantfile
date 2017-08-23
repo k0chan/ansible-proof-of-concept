@@ -3,8 +3,7 @@ VAGRANT_VERSIONFILE_API=2
 Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
 
   config.vm.box = "debian/jessie64"
-  config.vm.box_version = "8.5.1"
-  config.ssh.insert_key = false
+  config.vm.box_version = "8.9.0"
 
   config.vm.define "server1" do |machine|
     machine.vm.network "private_network", ip: "192.168.40.20"

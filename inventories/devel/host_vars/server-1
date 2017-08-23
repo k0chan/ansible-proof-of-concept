@@ -1,2 +1,1 @@
 hostname: server-1
-java_apps: [ 'mkb', 'hb', 'fidor' ]
