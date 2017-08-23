@@ -1,0 +1,10 @@
+---
+  # tasks file for java
+    - name: Make directory for application
+      file:
+        path: /opt/app
+        state: directory
+        owner: vagrant
+        group: vagrant
+        mode: g+rwsX
+        recurse: yes
