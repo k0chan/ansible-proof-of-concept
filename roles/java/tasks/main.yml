@@ -1,0 +1,11 @@
+---
+  # tasks file for java
+    - name: Make directory for application
+      file:
+        path: /opt/app/{{ item }}
+        state: directory
+        group: vagrant
+        owner: vagrant
+        mode: g+rwsX
+        recurse: yes        
+      with_items: "{{ java_apps }}"
