@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Methods
-checkAnsible() {
+function checkAnsible() {
     ansible --version &>/dev/null
     return $?
 }
@@ -21,3 +21,10 @@ fi
 
 # Change permission for private key to remote machine
 chmod 600 /home/vagrant/.ssh/id_rsa
+
+# Add domain to /etc/hosts
+if grep -q "server1" /etc/hosts; then
+    echo "Exists"
+else
+    echo "192.168.40.21 server1" >> /etc/hosts
+fi

@@ -11,4 +11,4 @@ gen
 # Ansible
 *.retry
 
-ansible.cfg
+ansible/ansible.cfg

@@ -7,6 +7,7 @@ Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
 
   config.vm.define "acs" do |machine|
       machine.vm.network "private_network", ip: "192.168.40.20"
+      machine.vm.hostname = "acs"
 
       machine.vm.provision "file", source: "provision/keys/id_rsa", destination: "/home/vagrant/.ssh/id_rsa"
       machine.vm.provision "shell", path: "provision/init_acs.sh"
