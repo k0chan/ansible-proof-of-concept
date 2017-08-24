@@ -1,4 +1,4 @@
-server-1 ansible_host=192.168.40.20
+server-1 ansible_host=192.168.40.21
 
 [serversgroup]
 server-1
