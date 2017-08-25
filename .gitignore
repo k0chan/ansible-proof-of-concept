@@ -10,5 +10,3 @@ gen
 
 # Ansible
 *.retry
-
-ansible/ansible.cfg
