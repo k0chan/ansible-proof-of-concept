@@ -1,10 +1,20 @@
-server-1 ansible_host=192.168.40.21
+jenkins ansible_host=192.168.40.21
+server-1 ansible_host=192.168.40.22
+
+
+
+
+
 
 [serversgroup]
 server-1
 
+[jenkinsgroup]
+jenkins
+
 [allservers:children]
 serversgroup
+jenkinsgroup
 
 [allservers:vars]
 ansible_user=vagrant

@@ -1,3 +1,5 @@
 ---
 
 - include: serversgroup.yml
+
+- include: jenkinsgroup.yml

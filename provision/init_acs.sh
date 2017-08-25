@@ -30,12 +30,12 @@ function installAnsible {
 # ---- ADDITIONAL CONFIGURATION ----
 function editHosts {
     declare -A hosts
-    hosts=( ["server1"]="192.168.40.21" )
+    hosts=( ["server1"]="192.168.40.22" ["jenkins"]="192.168.40.21" )
     for host in "${!hosts[@]}"; do
         if grep -q "${host}" /etc/hosts; then
             echo "${host} exists"
         else
-            echo "Modifies /etc/hosts"
+            echo "Added ${hosts[$host]}" "${host}"
             echo "${hosts[$host]}" "${host}" >> /etc/hosts
         fi
     done
@@ -47,23 +47,38 @@ function setPropertyPermissions {
     echo "Permission to file ${pathToPrivateKey} is already settled"
 }
 
+function customConfigurationVim {
+    local pathToVim="/home/vagrant/.vimrc"
 
-# General configuration
+if [[ ! -f "${pathToVim}" ]]; then
+echo "Create ${pathToVim} file"
+cat << EOF > "${pathToVim}"
+    set tabstop=2
+    set softtabstop=2
+    set shiftwidth=2
+    set expandtab
+    set syntax=on
+EOF
+else
+    echo "${pathToVim} file exists"
+fi
+}
+
 echo "----------------  Install Packages ----------------"
 installPackage; printf "\n\n"
 
 
-# Check if ansible is installed
 echo "----------------  Install Ansible ----------------"
 installAnsible; printf "\n\n"
 
 
-# Add domain to /etc/hosts
 echo "----------------  Edit /etc/hosts ----------------"
 editHosts; printf "\n\n"
 
 
-# Change permission for private key to remote machine
 echo "----------------  Set Property Permission to file ----------------"
 setPropertyPermissions; printf "\n\n"
 
+
+echo "----------------  Configuration Vim ----------------"
+customConfigurationVim; printf "\n\n"
