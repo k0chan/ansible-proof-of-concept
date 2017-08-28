@@ -6,6 +6,7 @@ Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
   config.vm.box_version = "8.9.0"
 
   ssh_pub_key = File.readlines("provision/keys/acs/id_rsa_acs.pub").first.strip
+  ssh_pub_key_jenkins = File.readlines("provision/keys/jenkins/id_rsa_jenkins.pub").first.strip
 
   config.vm.define "acs" do |machine|
       machine.vm.network "private_network", ip: "192.168.40.20"
@@ -24,6 +25,8 @@ Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
       machine.vm.network "forwarded_port", guest: 8080, host: 8080
       machine.vm.synced_folder ".", "/vagrant", disabled: true
 
+      machine.vm.provision "shell", path: "provision/init_jenkins.sh"
+      machine.vm.provision "file", source: "provision/keys/jenkins/id_rsa_jenkins", destination: "/home/vagrant/.ssh/id_rsa"
       machine.vm.provision "shell" do |shell|
         shell.path = "provision/add_pub_key.sh"
         shell.args = [ "#{ssh_pub_key}" ]
@@ -41,7 +44,7 @@ Vagrant.configure(VAGRANT_VERSIONFILE_API) do |config|
 
     machine.vm.provision "shell" do |shell|
       shell.path = "provision/add_pub_key.sh"
-      shell.args = [ "#{ssh_pub_key}" ]
+      shell.args = [ "#{ssh_pub_key}", "#{ssh_pub_key_jenkins}" ]
     end
 
     machine.vm.provider "virtualbox" do |vb|
